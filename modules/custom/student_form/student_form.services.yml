@@ -1,0 +1,9 @@
+services:
+  student_form.contact_validator:
+    class: 'Drupal\student_form\Service\ContactValidator'
+
+  student_form.student_service:
+    class: 'Drupal\student_form\Service\StudentService'
+    arguments: ['@database']
+
+  

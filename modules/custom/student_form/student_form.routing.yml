@@ -1,0 +1,15 @@
+student_form.form:
+  path: '/student-form'
+  defaults:
+    _form: '\Drupal\student_form\Form\StudentForm'
+    _title: 'Student Data Form'
+  requirements:
+    _permission: 'access content'
+
+student_form.student_list:
+  path: '/student-list'
+  defaults:
+    _controller: '\Drupal\student_form\Controller\StudentListController::listStudents'
+    _title: 'Student List'
+  requirements:
+    _permission: 'access content'

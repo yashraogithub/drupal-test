@@ -1,0 +1,59 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+use Drupal\taxonomy\TermInterface;
+
+/**
+ * Implements hook_form_alter().
+ * Adds a placeholder to the user login form.
+ */
+function hooks_practice_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'user_login_form') {
+    $form['name']['#attributes']['placeholder'] = t('Enter your username');
+    $form['pass']['#attributes']['placeholder'] = t('Enter your password');
+  }
+}
+
+/**
+ * Implements hook_node_presave().
+ * Appends "- Updated" to the title of article nodes before saving.
+ */
+function hooks_practice_node_presave(NodeInterface $node) {
+  if ($node->bundle() == 'article') {
+    $node->setTitle($node->getTitle() . ' - Updated');
+  }
+}
+
+/**
+ * Implements hook_node_insert().
+ * Displays a message when a new node is created.
+ */
+function hooks_practice_node_insert(NodeInterface $node) {
+  \Drupal::messenger()->addMessage(t('New content added: @title', ['@title' => $node->getTitle()]));
+}
+
+/**
+ * Implements hook_taxonomy_term_insert().
+ * Logs a message when a new taxonomy term is created.
+ */
+function hooks_practice_taxonomy_term_insert(TermInterface $term) {
+  \Drupal::logger('hooks_practice')->notice('New term added: @name', ['@name' => $term->getName()]);
+}
+
+/**
+ * Implements hook_user_login().
+ * Shows a message when a user logs in.
+ */
+function hooks_practice_user_login(&$account) {
+  \Drupal::messenger()->addMessage(t('Welcome back, @name!', ['@name' => $account->getDisplayName()]));
+}
+
+// function hooks_practice_preprocess_menu(&$variables){
+//   // Loop through the menu items and change the label for "Home".
+//   foreach ($variables['items'] as &$item) {
+//     if ($item['title'] === 'Home') {
+//       $item['title'] = 'Front'; // Change "Home" to "Front".
+//     }
+//   }
+// }

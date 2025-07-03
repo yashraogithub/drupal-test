@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function student_form_schema() {
+  $schema['student_data'] = [
+    'description' => 'Stores student details',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'student_id' => [
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => TRUE,
+      ],
+      'student_name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'student_contact' => [
+        'type' => 'varchar',
+        'length' => 15,
+        'not null' => TRUE,
+      ],
+      'student_email' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
+

@@ -1,0 +1,5 @@
+name: 'testingapp'
+type: module
+description: 'Testing App'
+package: yes
+core_version_requirement: ^10 || ^11

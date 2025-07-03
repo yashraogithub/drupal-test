@@ -1,0 +1,7 @@
+name: 'Example config form'
+description: 'Provides a config form'
+type: module 
+package: Custom
+core_version_requirement: ^10
+
+configure: example_form.admin_settings

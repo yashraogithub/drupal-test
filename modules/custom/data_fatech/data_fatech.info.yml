@@ -1,0 +1,6 @@
+name: 'Data Fatech'
+type: module
+description: 'A module to fetch and display data'
+core_version_requirement: ^10
+package: Custom
+dependencies: []

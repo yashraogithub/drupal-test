@@ -1,0 +1,5 @@
+name: 'Node Logger'
+type: module
+description: 'Logs a message when a new node is created.'
+core_version_requirement: ^10
+package: Custom

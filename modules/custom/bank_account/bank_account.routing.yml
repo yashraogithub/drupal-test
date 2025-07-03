@@ -1,0 +1,15 @@
+bank_account.form:
+  path: '/bank-account/form'
+  defaults:
+    _title: 'Bank Account Form'
+    _form: 'Drupal\bank_account\Form\BankAccountForm'
+  requirements:
+    _permission: 'access content'
+
+bank_account.list:
+  path: '/bank-acc-list'
+  defaults:
+    _controller: '\Drupal\bank_account\Controller\BankAccountListController::listAccounts'
+    _title: 'Bank Account List'
+  requirements:
+    _permission: 'access content'

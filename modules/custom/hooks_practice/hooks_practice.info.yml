@@ -1,0 +1,8 @@
+name: 'Hooks Practice'
+type: module
+description: 'A custom module to practice Drupal hooks.'
+core_version_requirement: ^10
+package: 'Custom'
+dependencies:
+  - drupal:node
+  - drupal:taxonomy

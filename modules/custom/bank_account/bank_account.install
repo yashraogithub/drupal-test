@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for the Bank Account module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function bank_account_schema() {
+  $schema['bank_account_data'] = [
+    'description' => 'Stores bank account details.',
+    'fields' => [
+      'id' => [
+        'description' => 'Primary Key: Unique ID.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'account_holder_name' => [
+        'description' => 'Name of the account holder.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'ifsc_code' => [
+        'description' => 'IFSC Code of the bank branch.',
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => TRUE,
+      ],
+      'branch_name' => [
+        'description' => 'Name of the branch.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'contact_number' => [
+        'description' => 'Contact number of the account holder.',
+        'type' => 'varchar',
+        'length' => 15, // To accommodate different formats
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function bank_account_install() {
+  \Drupal::logger('bank_account')->notice('Bank Account module has been installed.');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function bank_account_uninstall() {
+  $connection = \Drupal::database();
+  $connection->schema()->dropTable('bank_account_data');
+  \Drupal::logger('bank_account')->notice('Bank Account module has been uninstalled.');
+}

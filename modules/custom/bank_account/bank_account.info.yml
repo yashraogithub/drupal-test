@@ -1,0 +1,5 @@
+name: 'Bank Account'
+type: module
+description: 'A module to collect and store bank account details.'
+core_version_requirement: ^10
+package: Custom

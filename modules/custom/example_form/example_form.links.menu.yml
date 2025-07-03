@@ -1,0 +1,7 @@
+example_form.settings:
+  title: 'Example Form Settings'
+  route_name: example_form.settings
+  parent: system.admin_config
+  description: 'Configure Example Form settings.'
+  weight: 100
+  menu_name: administration

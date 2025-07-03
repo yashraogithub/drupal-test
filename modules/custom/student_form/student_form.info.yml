@@ -1,0 +1,8 @@
+name: 'Student Form'
+type: module
+description: 'A module to collect student data.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:field
+  - drupal:node

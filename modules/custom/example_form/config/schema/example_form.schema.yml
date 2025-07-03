@@ -1,0 +1,7 @@
+example_form.settings:
+  type: config_object
+  label: 'Example Form Configuration'
+  mapping:
+    contact_email:
+      type: string
+      label: 'Contact Email'

@@ -1,0 +1,7 @@
+testingapp.settings:
+  path: '/admin/config/system/settings'
+  defaults:
+    _title: 'Testing App'
+    _form: 'Drupal\testingapp\Form\SettingsForm'
+  requirements:
+    _permission: 'yes'
